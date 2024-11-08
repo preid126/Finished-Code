@@ -33,5 +33,6 @@ class TestVectors(unittest.TestCase):
         coup = self.v1 / -2.0
         self.assertEqual(getattr(coup, "y"), 1.0)
 
+
 if __name__ == "__main__":
     unittest.main()
