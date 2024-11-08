@@ -1,3 +1,5 @@
+from colour import Colour
+
 class Image:
     
     def __init__(self, width, height):

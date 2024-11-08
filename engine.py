@@ -29,7 +29,7 @@ class RenderEngine:
                 x = x0 + i*xstep
                 ray = Ray(camera, Point(x,y) - camera)
                 pixels.set_pixel(i,j, self.ray_trace(ray,scene) )
-            return pixels
+        return pixels
 
     def ray_trace(self, ray, scene):
         colour = Colour(0,0,0)
@@ -37,7 +37,7 @@ class RenderEngine:
         dist_hit, obj_hit = self.find_nearest(ray, scene)
         if obj_hit is None:
             return colour
-        hit_pos = ray_origin + ray_direction * dist_hit
+        hit_pos = ray.origin + ray.direction * dist_hit
         colour += self.colour_at(obj_hit, hit_pos, scene)
         return colour
 
@@ -52,5 +52,5 @@ class RenderEngine:
         return (dist_min, obj_hit)
 
     def colour_at(self, obj_hit, hit_pos, scene):
-        return obj_hit.material
+        return obj_hit.mat
 
