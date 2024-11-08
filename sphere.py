@@ -7,7 +7,6 @@ class Sphere:
         self.centre = centre
         self.mat = mat
 
-
     def volume(self,rad):
         return self.rad * self.rad * self.rad * math.pi * (4/3)
 
@@ -25,6 +24,11 @@ class Sphere:
                 return dist
 
         return None
+
+    def normal(self, surface_point):
+        """Returns surface normal to the point on the sphere"""
+        return (surface_point - self.centre).normalize()
+
 
         
 

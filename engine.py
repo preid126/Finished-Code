@@ -29,6 +29,7 @@ class RenderEngine:
                 x = x0 + i*xstep
                 ray = Ray(camera, Point(x,y) - camera)
                 pixels.set_pixel(i,j, self.ray_trace(ray,scene) )
+            print("{:3.0f}%".format(float(j)/float(height) * 100), end = '\r')
         return pixels
 
     def ray_trace(self, ray, scene):
@@ -38,7 +39,8 @@ class RenderEngine:
         if obj_hit is None:
             return colour
         hit_pos = ray.origin + ray.direction * dist_hit
-        colour += self.colour_at(obj_hit, hit_pos, scene)
+        hit_normal = obj_hit.normal(hit_pos)
+        colour += self.colour_at(obj_hit, hit_pos, hit_normal, scene)
         return colour
 
     def find_nearest(self, ray, scene):
@@ -51,6 +53,24 @@ class RenderEngine:
                 obj_hit = obj
         return (dist_min, obj_hit)
 
-    def colour_at(self, obj_hit, hit_pos, scene):
-        return obj_hit.mat
+    def colour_at(self, obj_hit, hit_pos, normal, scene):
+        material = obj_hit.mat
+        obj_colour = material.colour_at(hit_pos)
+        to_cam = scene.camera - hit_pos
+        specular_k = 50
+        colour = material.ambient * Colour.from_hex("#000000")
+
+        #light calculations
+        for light in scene.lights:
+            to_light = Ray(hit_pos, light.position - hit_pos)
+
+            #diffusive
+            colour += (obj_colour * material.diffuse * 
+                    max(normal.dot(to_light.direction), 0))
+            #specular
+            half_vector = (to_light.direction + to_cam).normalize()
+            colour+= light.colour * material.specular * max(normal.dot(half_vector), 0) ** specular_k
+
+        return colour
+
 
