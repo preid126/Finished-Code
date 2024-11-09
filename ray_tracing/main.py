@@ -18,7 +18,7 @@ def main():
     WIDTH = 320 # upper case means constant
     HEIGHT = 200
     camera = Vector(0, 0, -1)
-    objects = [Sphere(Point(0, 0, 0), 0.5, Material(Colour.from_hex("#800080")))]
+    objects = [Sphere(Point(0, 0, 0), 0.5, Material(Colour.from_hex("#8F0080")))]
     lights = [Light(Point(1.7,-0.5,-10.0), Colour.from_hex("#FFFFFF"))]
     scene = Scene(camera, objects, lights, WIDTH, HEIGHT)
     engine = RenderEngine()
