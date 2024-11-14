@@ -18,7 +18,7 @@ OBJECTS = [
     Sphere(Point(0, 10000.5, 1), 10000.0, ChequeredMaterial(colour1 = Colour.from_hex("#420500"), 
                                                             colour2 = Colour.from_hex("#e6b87d"), ambient = 0.2, reflection = 0.2)),
     #Blue Ball
-    Sphere(Point(-0.5, -0.1, 1), 0.6, Material(Colour.from_hex("#0000FF"))),
+    Sphere(Point(-3.0, -0.1, 1), 0.6, Material(Colour.from_hex("#0000FF"))),
     #Pink Ball
     Sphere(Point(0.75, -0.1, 2.25), 0.6, Material(Colour.from_hex("#803980")))
 ]
