@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 from tkinter import filedialog, simpledialog
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from PIL import Image, ImageTk
