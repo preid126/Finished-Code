@@ -2,6 +2,8 @@ import unittest
 from vector import Vector
 import numpy as np
 
+# not done
+
 class TestVectors(unittest.TestCase):
     def setup(self):
         a = np.array([1,2,2])
@@ -20,4 +22,4 @@ class TestVectors(unittest.TestCase):
         self.assertEqual(scalsum, np.array([4, 5, 5]))
 
     def test_multiplication(self):
-        
+        pass
