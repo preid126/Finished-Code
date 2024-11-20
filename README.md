@@ -4,7 +4,7 @@ This directory contains some projects that I am working either for school or jus
 I am a physics student at the University of Victoria and working on improving my skills with coding
 to better apply with physics concepts. 
 
-Currently there are two projects, a raytracer engine and some orbital motion simulations.
+Currently there are three projects, a raytracer engine, some orbital motion simulations and numerical analysis of a system of PDEs.
 
 
 
@@ -18,3 +18,6 @@ Currently to run the simiulation there is the option to produce a single frame .
 
 I used two main sources to build this project. First is Arun Ravindran's youtube series to introduce a lot of the concepts and issues that arise with ray tracing. The channel can be found at https://www.youtube.com/@arunrocks. This series was very helpful for providing the frame work to constuct the raytracer. The second resource is rossant/raytracing.py for the implementation of a plane within the simulation. 
 
+PDE analysis
+
+This file was used for a mathematical modelling course at the University of Utrecht. The first part of the file was provided by the professor and the rest was built to show the behaviour of the system with and without diffusion. The bifurcation plots were the main data points although the general trajectories proved useful for verifying results.
