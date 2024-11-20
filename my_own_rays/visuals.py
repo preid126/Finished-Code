@@ -17,6 +17,8 @@ class Image:
     def to_uint8(self):
         return (np.clip(self.pixels * 255, 0, 255)).astype(np.uint8)
 
+    def save(self, filename):
+        cv2.imwrite(filename, cv2.cvtColor(self.to_uint8(), cv2.COLOR_RGB2BGR))
 
 class Video:
     def __init__(self, width, height, frame_count):
